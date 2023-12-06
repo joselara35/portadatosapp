@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from web.back4app import login_api, obtener_datos_api
+from web.back4app import login_api, obtener_datos_api, obtener_celdas_api
 
 usuario: str = ""
 
@@ -43,12 +43,18 @@ def contenido_datos(request):
     extra3 = request.POST.get('extra3')
     descripcion = request.POST.get('descripcion')
 
+    if celdas != "null":
+        dato_celda = obtener_celdas_api(celdas)
+        dato0 = dato_celda['results'][0]
+    else:
+        dato0 = ""
+
     return render(request, 'contenido.html',
                   {'nombre': nombre,
                    'contenido': contenido,
                    'id': id,
                    'categoria': categoria,
-                   'celdas': celdas,
+                   'dato_celda': dato0,
                    'extra1': extra1,
                    'extra2': extra2,
                    'extra3': extra3,

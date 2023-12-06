@@ -10,9 +10,16 @@
 
         {% if contenido != "" %}
         <div class="card d-flex justify-content-center">
+
+            {% if dato_celda == "" %}
             <div class="card-header">
                 <h5 class="card-title">Contenido</h5>
             </div>
+            {% else %}
+            <div class="card-header">
+                <h5 class="card-title">{{ dato_celda.linea1 }}</h5>
+            </div>
+            {% endif %}
             <div class="card-body">
                 <p class="card-text">{{ contenido }}</p>
             </div>
@@ -21,9 +28,15 @@
 
         {% if descripcion != "" %}
          <div class="card d-flex justify-content-center mt-4">
+             {% if dato_celda == "" %}
             <div class="card-header">
                 <h5 class="card-title">Descripción</h5>
             </div>
+            {% else %}
+            <div class="card-header">
+                <h5 class="card-title">{{ dato_celda.linea2 }}</h5>
+            </div>
+            {% endif %}
             <div class="card-body">
                 <p class="card-text">{{ descripcion }}</p>
             </div>
@@ -32,9 +45,15 @@
 
         {% if extra1 != "" %}
         <div class="card d-flex justify-content-center mt-4">
+            {% if dato_celda == "" %}
             <div class="card-header">
                 <h5 class="card-title">Extra 1</h5>
             </div>
+            {% else %}
+            <div class="card-header">
+                <h5 class="card-title">{{ dato_celda.linea3 }}</h5>
+            </div>
+            {% endif %}
             <div class="card-body">
                 <p class="card-text">{{ extra1 }}</p>
             </div>
@@ -43,9 +62,15 @@
 
         {% if extra2 != "" %}
          <div class="card d-flex justify-content-center mt-4">
+           {% if dato_celda == "" %}
             <div class="card-header">
                 <h5 class="card-title">Extra 2</h5>
             </div>
+            {% else %}
+            <div class="card-header">
+                <h5 class="card-title">{{ dato_celda.linea4 }}</h5>
+            </div>
+            {% endif %}
             <div class="card-body">
                 <p class="card-text">{{ extra2 }}</p>
             </div>
@@ -54,9 +79,15 @@
 
         {% if extra3 != "" %}
         <div class="card d-flex justify-content-center mt-4">
+           {% if dato_celda == "" %}
             <div class="card-header">
                 <h5 class="card-title">Extra 3</h5>
             </div>
+            {% else %}
+            <div class="card-header">
+                <h5 class="card-title">{{ dato_celda.linea5 }}</h5>
+            </div>
+            {% endif %}
             <div class="card-body">
                 <p class="card-text">{{ extra3 }}</p>
             </div>

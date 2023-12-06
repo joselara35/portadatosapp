@@ -32,7 +32,6 @@ def login_api(usuario: str, codigo: str):
 
 
 def obtener_datos_api(user: str):
-    # URL: str = "https://parseapi.back4app.com/classes/parametros?where=usuario=='{}'".format(user)
     URL1: str = "https://parseapi.back4app.com/classes/almacen?where=%7B%22usuario%22%3A%20%22{}%22%7D".format(user)
     # Enviar los datos a la API
     response = requests.get(URL1, headers=headers)
@@ -41,6 +40,28 @@ def obtener_datos_api(user: str):
         print("Datos obtenidos correctamente:")
         print("-------------------------------------")
         dato: str = response.json()["results"][0].get("nombre")
+        datos = response.json()
+        print("enviado: ", URL1)
+        print("Dato: ", datos)
+        print("-------------------------------------")
+        return datos
+
+    else:
+        print("Error al enviar los datos:", response.status_code)
+        print("-------------------------------------")
+        dato: str = response.status_code
+        return dato
+
+
+def obtener_celdas_api(id_celda: str):
+    URL1: str = "https://parseapi.back4app.com/classes/datos?where=%7B%22objectId%22%3A%22{}%22%7D".format(id_celda)
+    # Enviar los datos a la API
+    response = requests.get(URL1, headers=headers)
+    # Verificar si la petición fue exitosa
+    if response.status_code == 200:
+        print("Datos obtenidos correctamente:")
+        print("-------------------------------------")
+        # dato: str = response.json()["results"][0].get("objectId")
         datos = response.json()
         print("enviado: ", URL1)
         print("Dato: ", datos)
