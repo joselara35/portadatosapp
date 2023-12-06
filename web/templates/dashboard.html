@@ -1,0 +1,40 @@
+{% extends "modelos/base.html" %}
+{% block contenido %}
+
+<div class="container d-flex align-items-center justify-content-center">
+    <div class="card-body">
+        <div class="d-flex justify-content-center mb-2 text-center">
+            <i class="bi bi-collection-fill"></i>
+            <h5 class="mx-2 text-center mt-2">Lista de Datos Guardados</h5>
+        </div>
+        {% for result in data.results %}
+        <div class="d-flex justify-content-center align-items-center" >
+            <div class="card mb-5" style="width: fit-content; padding: 5px;width: 70%;">
+                <div class="card-header">
+                    {{ forloop.counter }}
+                </div>
+                <div class="card-body d-flex flex-row align-items-center" >
+                    <h5 class="card-title mx-2" style="flex: 1 1 auto">{{ result.nombre }}</h5>
+                    <p class="card-text mx-2" style="flex: 1 1 auto">{{ result.createdAt }}</p>
+                    <form action="/dashboard/data/" method="POST">
+                        {% csrf_token %}
+                         <input type="hidden" name="id" value="{{ result.objectId }}">
+                        <input type="hidden" name="nombre" value="{{ result.nombre }}">
+                        <input type="hidden" name="contenido" value="{{ result.contenido }}">
+                        <input type="hidden" name="extra1" value="{{ result.extra1 }}">
+                        <input type="hidden" name="extra2" value="{{ result.extra2 }}">
+                        <input type="hidden" name="extra3" value="{{ result.extra3 }}">
+                        <input type="hidden" name="categoria" value="{{ result.categoria }}">
+                         <input type="hidden" name="id_datos" value="{{ result.id_datos }}">
+                        <input type="hidden" name="descripcion" value="{{ result.descripcion }}">
+                        <button type="submit" class="btn btn-info btn-action mx-2">Abrir</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}
