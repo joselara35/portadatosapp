@@ -1,7 +1,7 @@
 FROM python:3.11
 
 # Establecer el directorio de trabajo en el contenedor
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Instalar dependencias del sistema requeridas para las bibliotecas de Python
 RUN apt-get update && \
