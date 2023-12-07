@@ -21,4 +21,4 @@ COPY . .
 EXPOSE 8000
 
 # Ejecutar el servidor de aplicaciones Gunicorn para servir la aplicación Django
-CMD ["gunicorn", "portadatos_python.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "portadatos.wsgi:application", "--bind", "0.0.0.0:8000"]
