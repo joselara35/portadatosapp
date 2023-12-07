@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-0)@u6tx@5(8h^5i%5p99k#fnh%0xv8f6(umi1xa%6mafap7n@t
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+CSRF_TRUSTED_ORIGINS = ['https://datosapp-wsuu1u10.b4a.run']
 
 # Application definition
 
