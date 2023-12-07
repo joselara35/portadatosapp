@@ -20,7 +20,7 @@ def login(request):
             # return render(request, 'dashboard.html', {'usuario': usuario})
         else:
             messages.add_message(request, messages.ERROR, 'Usuario o clave invalido')
-            # return render(request, 'login.html')
+            # return render(request, 'login.html')fvgggg
 
     return render(request, 'login.html', {'message': user})
 
