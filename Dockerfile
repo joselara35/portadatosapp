@@ -13,6 +13,7 @@ COPY requirements.txt ./
 
 # Instalar los paquetes requeridos por la aplicación
 RUN pip install --no-cache-dir -r requirements.txt
+RUN python manage.py collectstatic
 
 # Copiar todos los archivos del proyecto Django al contenedor
 COPY . .
